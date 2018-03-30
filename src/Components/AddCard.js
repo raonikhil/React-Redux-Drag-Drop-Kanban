@@ -9,7 +9,6 @@ class AddCard extends Component {
 		}
 	}
 
-	// addCardList(e) {
 	handleSubmit(e) {
 
 		e.preventDefault();
@@ -19,7 +18,8 @@ class AddCard extends Component {
 			this.setState({
 				newcardItem: {
 					id: uuid.v4(),
-					title: this.refs.card_title.value,
+					listID: this.refs.card_id.value,
+					title: this.refs.card_title.value
 				}
 			}, function(){
 				let id = this.refs.card_id.value;

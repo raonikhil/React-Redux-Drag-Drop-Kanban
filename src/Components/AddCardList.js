@@ -9,7 +9,6 @@ class AddCardList extends Component {
 		}
 	}
 
-	// addCardList(e) {
 	handleSubmit(e) {
 		if(this.refs.list_title.value === '') {
 
@@ -26,7 +25,6 @@ class AddCardList extends Component {
 			});
 		}
 		e.preventDefault();
-		console.log('submitted');
 	}
 
   	render() {

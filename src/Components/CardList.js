@@ -1,24 +1,28 @@
 import React, { Component } from 'react';
 import CardListItem from './CardListItem';
 import AddCardList from './AddCardList';
-import { Draggable, Droppable } from 'react-drag-and-drop';
 
 class CardList extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			tempCardItem:{}
 		}
 	}
-
-
-
+	
 	getCardList()
 	{
 		let listItems;
 		if(this.props.listItems) {
 			listItems = this.props.listItems.map( listItem => {
 				return (
-					<CardListItem key={listItem.id} addCard={this.addCard.bind(this)}  deleteCard={this.deleteCard.bind(this)} listItem={listItem} />
+					<CardListItem
+						key={listItem.id}
+						addCard={this.addCard.bind(this)}
+						deleteCard={this.deleteCard.bind(this)}
+						listItem={listItem}
+						moveCard={this.moveCard.bind(this)}
+					/>
 				)
 			});
 		}
@@ -38,20 +42,18 @@ class CardList extends Component {
 		this.props.deleteCard(id, listId);
 	}
 
-	onDrop() {
-        console.log('data');
-    }
+	moveCard(cardItem, from, to) {
+		this.props.moveCard(cardItem, from, to);
+	}
 	
 	render() {
 		let listItems = this.getCardList();
 
 		return (
-			<Droppable
-				 className="card-board-list"
-                onDrop={this.onDrop.bind(this)}>
+			<div className="card-board-list">
 				{listItems}
 				<AddCardList addCardList={this.addCardList.bind(this)} />
-			</Droppable>
+			</div>
 		);
 	}
 }
