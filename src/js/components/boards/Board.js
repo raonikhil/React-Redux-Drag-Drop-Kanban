@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
-import Home from '../Home';
+import Menu from '../Menu';
 import CardList from '../card-list/CardList';
 
 const mapStateToProps = state => {
@@ -15,7 +15,7 @@ class BoardView extends Component {
 		const { boards } = this.props.boards;
 		const board_id = this.props.match.params.board_id
 		const board = boards.filter(board => board.id == board_id);
-		
+
 		let cardList; 
 		if(board)
 		{
@@ -31,6 +31,7 @@ class BoardView extends Component {
 		const cardList = this.getBoard();
 		return (
 			<main data-reactroot>
+				<Menu />
 				{cardList}
 			</main>
 		);

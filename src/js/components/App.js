@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
 import List from './boards/List';
 import Form from './boards/Form';
+import Menu from './Menu';
 
 class App extends Component {
 	render() {
 		return (
 			<div className="row mt-5">
+				<div className="col-md-12">
+					<h2>Menu</h2>
+					<Menu />
+				</div>
+
 				<div className="col-md-4 offset-md-1">
 					<h2>Boards</h2>
 					<List />
