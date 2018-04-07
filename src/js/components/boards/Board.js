@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
@@ -37,6 +37,10 @@ class BoardView extends Component {
 		);
 	}
 }
+
+BoardView.propTypes = {
+
+};
 
 const Board = connect(mapStateToProps)(BoardView);
 export default DragDropContext(HTML5Backend)(Board);

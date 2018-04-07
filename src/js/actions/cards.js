@@ -1,6 +1,6 @@
-import { ADD_CARD, DELETE_CARD, MOVE_CARD } from "../constants/action-types";
+import { ADD_CARD, DELETE_CARD, MOVE_CARD, LOAD_CARDS_SUCCESS } from "../constants/action-types";
 
-export const addCard = (card, card_list_id, board_id) => ({
+export const addCardSuccess = (card) => ({
 	type: ADD_CARD,
 	payload: card
 });
@@ -12,3 +12,47 @@ export const moveCard = (card, to_card_list_id) => ({
 	type: MOVE_CARD,
 	payload: { card, to_card_list_id }
 });
+
+export function loadCards() {  
+  return function(dispatch) {
+  	const myRequest = new Request('http://localhost/api/v1/cards.php', { method: 'POST', body: '{ "method": "get_all_cards" }' });
+
+		return fetch(myRequest).then(response => {
+						return response.json().then((cards) => {
+				    	console.log(cards);
+				      dispatch(loadCardsSuccess(cards));
+				    }).catch(error => {
+				      throw(error);
+				    });
+    			}).then(response => {
+						console.debug(response);
+					}).catch(error => {
+						console.error(error);
+					});
+  };
+}
+
+export const addCard = (card) => {   
+  return function(dispatch) {
+  	let json = { "method": "add_card", card};
+
+  	const myRequest = new Request('http://localhost/api/v1/cards.php', { method: 'POST', body: JSON.stringify(json) });
+
+		return fetch(myRequest).then(response => {
+						return response.json().then((card) => {
+				    	console.log(card);
+				      dispatch(addCardSuccess(card));
+				    }).catch(error => {
+				      throw(error);
+				    });
+    			}).then(response => {
+						console.debug(response);
+					}).catch(error => {
+						console.error(error);
+					});
+  };
+};
+
+export function loadCardsSuccess(cards) {  
+  return {type: LOAD_CARDS_SUCCESS, cards};
+}

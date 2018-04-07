@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import uuidv1 from "uuid";
-import { addBoard } from "../../actions/index";
+import { addBoard } from "../../actions/boards";
 
 const mapDispatchToProps = dispatch => {
 	return {
-		addBoard: article => dispatch(addBoard(article))
+		addBoard: board => dispatch(addBoard(board))
 	};
 };
 class ConnectedForm extends Component {
@@ -23,9 +23,17 @@ class ConnectedForm extends Component {
 	handleSubmit(event) {
 		event.preventDefault();
 		const { title } = this.state;
-		const id = uuidv1();
-		this.props.addBoard({ title, id, card_list: [] });
-		this.setState({ title: "" });
+
+		if(this.state.title == '')
+		{
+
+		}
+		else
+		{
+			const id = uuidv1();
+			this.props.addBoard({ title, id, card_list: [] });
+			this.setState({ title: "" });
+		}
 	}
 	render() {
 		const { title } = this.state;

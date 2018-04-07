@@ -1,4 +1,4 @@
-import { ADD_CARD, DELETE_CARD, MOVE_CARD } from "../constants/action-types";
+import { ADD_CARD, DELETE_CARD, MOVE_CARD, LOAD_CARDS_SUCCESS } from "../constants/action-types";
 
 const initialState = {
 	cards: []
@@ -6,6 +6,9 @@ const initialState = {
 const card = (state = initialState, action) => {
 	
 	switch (action.type) {
+		case LOAD_CARDS_SUCCESS:
+    	return action.cards
+
 		case ADD_CARD:
 			return { ...state, cards: [...state.cards, action.payload] };
 

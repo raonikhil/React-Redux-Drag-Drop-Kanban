@@ -1,11 +1,14 @@
-import { ADD_CARD_LIST, DELETE_CARD_LIST } from "../constants/action-types";
+import { ADD_CARD_LIST, DELETE_CARD_LIST, LOAD_CARD_LIST_SUCCESS } from "../constants/action-types";
 
 const initialState = {
 	card_list: []
 }
 const cardList = (state = initialState, action) => {
-console.log(action);
+// console.log(action);
 	switch (action.type) {
+		case LOAD_CARD_LIST_SUCCESS:
+    	return action.card_list
+
 		case ADD_CARD_LIST:
 			return { ...state, card_list: [...state.card_list, action.payload] };
 

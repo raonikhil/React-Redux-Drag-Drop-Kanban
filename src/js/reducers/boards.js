@@ -1,11 +1,16 @@
-import { ADD_BOARD, DELETE_BOARD } from "../constants/action-types";
-
+import { ADD_BOARD, DELETE_BOARD, LOAD_BOARDS_SUCCESS } from "../constants/action-types";
+import Board from "../api/Board";
+// let boards = Board.getAllBoards();
+// console.log(boards);
 const initialState = {
 	boards: []
 }
 
 const board = (state = initialState, action) => {
 	switch (action.type) {
+		case LOAD_BOARDS_SUCCESS:
+    	return action.boards
+
 		case ADD_BOARD:
 			return { ...state, boards: [...state.boards, action.payload] };
 

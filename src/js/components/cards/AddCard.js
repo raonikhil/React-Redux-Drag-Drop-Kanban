@@ -5,7 +5,7 @@ import { addCard } from "../../actions/cards";
 
 const mapDispatchToProps = dispatch => {
 	return {
-		addCard: (cardItem, listId, boardId) => dispatch(addCard(cardItem, listId, boardId))
+		addCard: (cardItem) => dispatch(addCard(cardItem))
 	};
 };
 
