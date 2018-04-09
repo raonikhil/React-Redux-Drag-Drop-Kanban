@@ -17,7 +17,7 @@ const card = (state = initialState, action) => {
 			let cardItem = action.payload;
 			const newState = Object.assign([], state);
       const indexOfCardToDelete = state.cards.findIndex(el => {
-        return el.id == cardItem.id && el.listId == cardItem.listId && el.boardId == cardItem.boardId
+        return el.id === cardItem.id && el.listId === cardItem.listId && el.boardId === cardItem.boardId
       })
 
       newState.cards.splice(indexOfCardToDelete, 1);
@@ -28,7 +28,7 @@ const card = (state = initialState, action) => {
 			const { card, to_card_list_id } = action.payload;
 			const newCardState = Object.assign([], state);
       const indexOfCard = state.cards.findIndex(el => {
-        return el.id == card.id && el.listId == card.listId && el.boardId == card.boardId
+        return el.id === card.id && el.listId === card.listId && el.boardId === card.boardId
       })
 
       newCardState.cards[indexOfCard].listId = to_card_list_id;

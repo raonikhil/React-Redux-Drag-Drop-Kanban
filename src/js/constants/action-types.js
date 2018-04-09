@@ -8,3 +8,4 @@ export const MOVE_CARD = "MOVE_CARD";
 export const LOAD_BOARDS_SUCCESS = "LOAD_BOARDS_SUCCESS";
 export const LOAD_CARD_LIST_SUCCESS = "LOAD_CARD_LIST_SUCCESS";
 export const LOAD_CARDS_SUCCESS = "LOAD_CARDS_SUCCESS";
+export const API_BASE_URL = "http://localhost/api/";

@@ -1,9 +1,7 @@
 class Board {  
 	static getAllBoards() {
 
-		var myInit = { method: 'GET' }
-
-		const myRequest = new Request('http://localhost/api/v1/boards.php', myInit);
+		const myRequest = new Request('http://localhost/api/v1/boards.php', { method: 'POST', body: '{ "method": "get_all_boards" }' });
 
 		return fetch(myRequest)
 						.then(response => {

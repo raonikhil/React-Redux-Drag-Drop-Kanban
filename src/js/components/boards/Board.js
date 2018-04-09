@@ -30,10 +30,12 @@ class BoardView extends Component {
 	render() {
 		const cardList = this.getBoard();
 		return (
-			<main data-reactroot>
+			<div style={{height:'100%'}}>
 				<Menu />
-				{cardList}
-			</main>
+				<main data-reactroot>
+					{cardList}
+				</main>
+			</div>
 		);
 	}
 }

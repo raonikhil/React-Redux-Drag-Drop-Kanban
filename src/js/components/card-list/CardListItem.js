@@ -82,14 +82,14 @@ class ConnectedCardListItem extends Component {
 		const { cards } = this.props.cards;
 		const boardId = this.props.listItem.boardId
 		const listId = this.props.listItem.id
-		const cardItems = cards.filter(card => card.boardId == boardId && card.listId == listId);
+		const cardItems = cards.filter(card => card.boardId === boardId && card.listId === listId);
 		return cardItems;
 	}
 
 	deleteCardList(listItem) {
 		const { cards } = this.props.cards;
 		let list = listItem;
-		const cardItems = cards.filter(card => card.boardId == list.boardId && card.listId == list.id);
+		const cardItems = cards.filter(card => card.boardId === list.boardId && card.listId === list.id);
 		cardItems.map( cardItem => {
 			return this.props.deleteCard(list);
 		});

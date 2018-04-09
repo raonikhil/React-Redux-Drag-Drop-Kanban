@@ -6,9 +6,8 @@ import Menu from './Menu';
 class App extends Component {
 	render() {
 		return (
-			<div className="row mt-5">
+			<div className="row">
 				<div className="col-md-12">
-					<h2>Menu</h2>
 					<Menu />
 				</div>
 

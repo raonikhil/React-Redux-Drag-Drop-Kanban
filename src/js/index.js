@@ -7,6 +7,7 @@ import {loadBoards} from "../js/actions/boards";
 import {loadCardList} from "../js/actions/card-list";
 import {loadCards} from "../js/actions/cards";
 import App from "./components/App";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "../App.css";
 import Home from "./components/Home";
 import Board from "./components/boards/Board";

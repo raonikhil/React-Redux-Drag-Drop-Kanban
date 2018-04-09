@@ -23,19 +23,8 @@ class ConnectedCardList extends Component {
 	{
 		const { card_list } = this.props.card_list;
 		const boardId = this.props.boardId
-		const listItems = card_list.filter(card_list => card_list.boardId == boardId);
+		const listItems = card_list.filter(card_list => card_list.boardId === boardId);
 
-		/*let listItems;
-		if(board.card_list) {
-			listItems = board.card_list.map( listItem => {
-				return (
-					<CardListItem
-						key={listItem.id}
-						listItem={listItem}
-					/>
-				)
-			});
-		}*/
 		return listItems;
 	}
 	
