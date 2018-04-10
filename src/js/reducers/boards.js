@@ -18,7 +18,7 @@ const board = (state = initialState, action) => {
 			const { id } = action.payload;
 			const newState = Object.assign([], state);
       const indexOfBoardToDelete = state.boards.findIndex(board => {
-        return board.id == id
+        return board.id === id
       })
 
       newState.boards.splice(indexOfBoardToDelete, 1);

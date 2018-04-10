@@ -24,7 +24,7 @@ class ConnectedForm extends Component {
 		event.preventDefault();
 		const { title } = this.state;
 
-		if(this.state.title == '')
+		if(this.state.title === '')
 		{
 
 		}

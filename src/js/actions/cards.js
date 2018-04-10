@@ -4,7 +4,7 @@ export const addCardSuccess = (card) => ({
 	type: ADD_CARD,
 	payload: card
 });
-export const deleteCard = (card) => ({
+export const deleteCardSuccess = (card) => ({
 	type: DELETE_CARD,
 	payload: card
 });
@@ -35,6 +35,21 @@ export const addCard = (card) => {
 		return fetch(myRequest).then(response => {
 			return response.json()
 							.then(card => dispatch(addCardSuccess(card)))
+							.catch(error => { throw(error) });
+    			}).then(response => console.debug(response))
+						.catch(error => console.error(error));
+  };
+};
+
+export const deleteCard = (card) => {   
+  return function(dispatch) {
+  	let json = { "method": "delete_card", card};
+
+  	const myRequest = new Request(API_BASE_URL + 'v1/cards.php', { method: 'POST', body: JSON.stringify(json) });
+
+		return fetch(myRequest).then(response => {
+			return response.json()
+							.then(card => dispatch(deleteCardSuccess(card)))
 							.catch(error => { throw(error) });
     			}).then(response => console.debug(response))
 						.catch(error => console.error(error));
